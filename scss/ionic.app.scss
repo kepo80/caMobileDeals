@@ -1,0 +1,323 @@
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #4a87ee !default;
+$calm:                            #43cee6 !default;
+$balanced:                        #66cc33 !default;
+$energized:                       #f0b840 !default;
+$assertive:                       #ef4e3a !default;
+$royal:                           #8a6de9 !default;
+$dark:                            #444 !default;
+*/
+
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+
+// Include all of Ionic
+@import "www/lib/ionic/scss/ionic";
+
+
+
+$ct-bg:  '../img/bg-blur.jpg';
+$bg-color: rgba(0,0,0,.5);
+$bg-colorOne: rgba(0,59,125,.9);
+$bg-transWht: rgba(255, 255, 255, .22);
+
+$border-color: transparent;
+
+.no-padding {
+  padding: 0 !important;
+}
+.pic-bg {
+  background: url($ct-bg) no-repeat center center fixed;
+  background-size: cover;
+}
+
+.bar.bar-positive, .tabs-positive > .tabs, .tabs.tabs-positive {
+background: $bg-colorOne;
+}
+
+div.feature {
+  width:100%;
+  height: auto;
+  margin-bottom: -5px;
+
+  img {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+  }
+
+}
+.featureTitle {
+  border-top: 4px solid #ccc;
+  border-bottom: 4px solid #ccc;
+  padding: 5px;
+  text-align: center;
+}
+.featureButton {
+  text-align: center;
+  padding-top: 10px;
+  margin-bottom: 10px;
+}
+img.imgTitle {
+  height: 35px;
+  width: auto;
+  margin-top: 5px;
+}
+
+
+
+.bgImg {
+  background: url($ct-bg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  background-size: cover;
+
+}
+.noBg {
+  background: transparent;
+}
+
+//.pane, .view
+//.item-complex .item-content, .item,
+
+
+@mixin bg-wht {
+  background-color: $bg-transWht;
+  border-color: transparent;
+}
+
+//.pane, .view {
+//  background-color: $bg-color;
+//}
+
+.item-complex .item-content, .item {
+  background-color: $bg-color;
+}
+
+.item {
+border-color: rgba(255,255,255,.2);
+  h2, p {
+    color: #fff;
+  }
+}
+
+.list .item.item-accordion {
+  line-height: 38px;
+  padding-top: 0;
+  padding-bottom: 0;
+  transition: 0.09s all linear;
+}
+.list .item.item-accordion.ng-hide {
+  line-height: 0px;
+}
+.list .item.item-accordion.ng-hide-add,
+.list .item.item-accordion.ng-hide-remove {
+  display: block !important;
+}
+
+.share {
+  padding-top: 5px;
+  a {
+    font-size: 30px;
+    color: #003b7d;
+    margin-left: 10px;
+
+
+  }
+  .directions {
+    max-width: 33%;
+    display: inline-block;
+    padding-left: 5px;
+    text-align: center;
+  }
+
+  .facebook, .twitter, .gmail {
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+  }
+}
+.mapFeatureImg {
+  background: #000000;
+  color: #fff;
+  
+  .content {
+    padding: 0 5px 5px 5px ;
+    text-align: center;
+
+    h4 {
+      color: #fff;
+    }
+
+    .action {
+      color: #ff0000;
+      display: inline-block;
+      padding-top: 5px;
+      font-weight: bold;
+    }
+  }
+  img {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+  }
+}
+.map {
+  min-height: 95px;
+  color: #fff;
+
+  .info {
+  max-width: 75%;
+  margin: 0 auto;
+  padding: 10% 0 10% 0 ;
+  }
+
+  .divider {
+    height: 2px !important;
+    background-color: red;
+    width: 100%;
+
+  }
+
+  .innerTitle {
+    border-bottom: 2px solid;
+    padding-bottom: 2px;
+    color: #fff;
+    font-variant: small-caps;
+    font-weight: bold;
+    font-size: 1.2em;
+  }
+  .dinner  {
+      border-color: #00bff3;
+    }
+
+ .breakfast  {
+    border-color: #ff0000;
+  }
+
+  .lunch {
+    border-color: #f7941f;
+  }
+
+  .services {
+    border-color: #00a651;
+  }
+  .tag {
+    text-transform: uppercase;
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 2px;
+    font-size: .8em;
+
+
+  }
+.overlay  {
+  height: 100%;
+  width: 100%;
+  min-height: 100px;
+  background-color: rgba(0, 0, 0, .5);
+  position: relative;
+
+  i {
+    position: absolute;
+    right: 5%;
+    top: 40%;
+    font-size: 1.2em;
+  }
+}
+
+
+}
+
+.user {
+  padding-top: 10px;
+  margin-bottom: 30px;
+  .avatar {
+    position: absolute;
+    top: 10px;
+    left: 5px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+  }
+  .points {
+    display: block;
+    margin-left: 100px;
+  }
+
+  .points.total {
+    font-size: 1.5em;
+    i {
+      font-size: 1.5em;
+      margin-right: 5px;
+      color: #003b7d;
+    }
+  }
+}
+
+.cpImgContainer {
+  background: #fff;
+
+  .cpImg {
+    height: 70px;
+    width: 70px;
+    display: block;
+    margin: 0 auto 10px auto;
+  }
+
+}
+
+.tagline {
+  text-align: center !important;
+  font-size: 1.2em !important;
+}
+
+.footer-tabs {
+  height: 50px;
+  padding: 0;
+  background: none;
+}
+.img-flex {
+  width: 100%;
+  height: auto;
+}
+
+.map-bg {
+  background: url("../img/map_bg.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  background-size: cover;
+
+}
+
+.map-header {
+img {
+  margin-bottom: -5px;
+}
+  .map-tagline {
+    color: #ff0000;
+    background: #000;
+    font-weight: 700;
+    text-align: center;
+    padding: 10px;
+  }
+}
+.white {
+  color: #ffffff;
+}
+
+.list-bg {
+  display: inline;
+  background-color: #fff;
+  padding: 2px;
+}
+.wrap {
+  white-space: normal !important;
+}
