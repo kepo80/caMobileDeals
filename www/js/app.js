@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic'])
+angular.module('starter', ['ionic', 'starter.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -26,17 +26,7 @@ angular.module('starter', ['ionic'])
              templateUrl: 'main.html',
             controller: 'MainController as main'
           })
-          .state('base.tabs',{
-              url: '/',
-              views: {
-                  'menuContent' : {
-                  templateUrl: 'tabs.html',
-                  controller: 'TabsController as tabs'
-
-                  }
-              }
-          })
-          .state('base.page', {
+          .state('base.account', {
               url: '/page',
               views: {
                   'menuContent': {
@@ -45,7 +35,36 @@ angular.module('starter', ['ionic'])
                   }
               }
           })
+          .state('base.tabs',{
+              abstract: true,
+              views: {
+                  'menuContent' : {
+                  templateUrl: 'tabs.html',
+                  controller: 'TabsController as tabs'
 
+                  }
+              }
+          })
+
+          .state('base.tabs.deals', {
+              url: '/deals',
+              views: {
+                  'dealsTab' : {
+                      templateUrl: 'deals.html',
+                      controller: 'DealsController as dealsctrl'
+                  }
+              }
+          })
+          .state('base.tabs.deal', {
+              url: '/deals/:dealId',
+              views: {
+                  'dealsTab' : {
+                      templateUrl: 'deal.html',
+                      controller: 'DealController as dealctrl'
+                  }
+              }
+          })
+        $urlRouterProvider.otherwise('/deals');
     })
 
 .controller('MainController', function () {
@@ -62,9 +81,24 @@ angular.module('starter', ['ionic'])
       ctrl.person.gender = "male";
     })
 
-.controller('PageController', function () {
+.controller('PageController', function ($ionicNavBarDelegate) {
       var ctrl = this;
       ctrl.person = {};
       ctrl.person.points = 3000;
       ctrl.person.active = 'soon';
+        ctrl.goBack = function () {
+            $ionicNavBarDelegate.back();
+        }
+    })
+
+.controller('DealsController', function (Deals) {
+    var _this = this;
+        _this.deals = Deals.all();
+    })
+    .controller('DealController', function ($stateParams, $ionicNavBarDelegate, Deals) {
+    var _this = this;
+        _this.deal = Deals.get($stateParams.dealId);
+        _this.goBack = function () {
+            $ionicNavBarDelegate.back();
+        }
     })
